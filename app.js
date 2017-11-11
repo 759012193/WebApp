@@ -1,7 +1,7 @@
 var koa=require('koa');
 var controller=require('koa-route');
 var app=koa();
-
+var testA="A分支修改！";
 var views=require('co-views');
 var render=views('./view',{
 	map:{html:'ejs'}
