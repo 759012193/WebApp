@@ -1,7 +1,7 @@
 var koa=require('koa');
 var controller=require('koa-route');
 var app=koa();
-
+var test2="master";
 var views=require('co-views');
 var render=views('./view',{
 	map:{html:'ejs'}
