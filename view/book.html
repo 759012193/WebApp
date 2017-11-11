@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/book.css">
+		
+		<title>书籍详情</title>
+	</head>
+	<body>
+		<div  id="app">
+		<% include include/comment-header.html %>
+		<div class="container-scroll" style="width:357px;">
+			<div class="new-page book-page">
+				<section class="main-card">
+					<div class="u-book -detail">
+						<div class="book-cover">
+							<img :alt="item.title" v-bind:src="item.cover">
+						</div>
+						<div class="info">
+							<h3 class="title">{{item.title}}</h3>
+							<p class="author">
+								<span class="author">{{item.author}}</span>
+							</p>
+							<div class="u-grade">
+							<div class="grade grade8"></div>
+								<span class="read">{{item.score}}个评价</span>
+							</div>
+							<p class="price">价格：{{item.price}}书币/千字</p>
+							<p class="count">
+								字数：{{item.count}}字
+								<span class="u-booktag -serial">连载中</span>
+							</p>
+						</div>
+					</div>
+				</section>
+			    <section class="main-card">
+			    	<div class="book-dash">
+			    		<div id="bookid">
+			    			<div class="wrap">
+			    				<ul class="btn-group">
+			    					<li v-on:click="readBook()" class="u-btn2">
+				    					<span class="book-dash-text">
+				    					
+				    					</span>
+			    					</li>
+			    					<li>
+			    						<a href="" class="u-btn3">
+			    							下载
+			    						</a>
+			    					</li>
+			    				</ul>
+			    			</div>
+			    		</div>
+			    	</div>
+			    	<div class="u-folder">
+				    	<div class="folder-cnt -fold" data-href="">{{item.content}}
+						</div>
+						<div class="folder-tail">
+							<div>最新：{{item.latest}}
+							</div>
+						</div>
+			    	</div>
+			    </section>
+			    <section class="main-card">
+			    	<div class="u-folder"> 
+			    		<div class="folder-top">
+			    			<h3>类别标签</h3>
+			    		</div>
+			    		<div class="folder-cnt">
+			    			<ul class="m-tag -color">
+			    				<li class="u-tag" v-for="tag in item.tags">
+			    					{{tag}}
+			    				</li>
+			    			</ul>
+			    		</div>
+			    	</div>
+			    </section>
+			    <section class="main-card">
+			    	<div class="u-title">
+			    		<h1>喜欢本书的人也喜欢</h1>
+			    	</div>
+			    	<div class="cnt">
+			    		<ul class="book-table">
+			    		<li>
+			    			<div class="u-book -vertical">
+			    				<div class="book-cover">
+			    					<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01eTg16vHUW/3y40Lk0kmI0qnE.jpg!s">
+			    			   </div>
+			    			   <div class="info">
+			    			   	<h3>盗墓笔记</h3>
+			    			   </div>
+			    			</div>
+			    		</li>
+			    			<li>
+			    			<div class="u-book -vertical">
+			    				<div class="book-cover">
+			    					<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01eTg16vHUW/3y40Lk0kmI0qnE.jpg!s">
+			    			   </div>
+			    			   <div class="info">
+			    			   	<h3>盗墓笔记</h3>
+			    			   </div>
+			    			</div>
+			    		</li>
+			    		<li>
+			    			<div class="u-book -vertical">
+			    				<div class="book-cover">
+			    					<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01eTg16vHUW/3y40Lk0kmI0qnE.jpg!s">
+			    			   </div>
+			    			   <div class="info">
+			    			   	<h3>盗墓笔记</h3>
+			    			   </div>
+			    			</div>
+			    		</li>
+			    		</ul>
+			    	</div>
+			    </section>
+			</div>
+		</div>
+		</div>	
+	</body>
+	
+	<script src="/static/script/jquery-3.2.1.js"></script>
+    <script src="/static/script/zepto.js"></script>
+    <script src="/static/script/vue.js"></script>
+    <script src="/static/script/pages/book.js"></script>
+</html>

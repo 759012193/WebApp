@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/static/css/all.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+		<title>书城首页</title>
+	</head>
+	<body>
+	
+		
+		
+		<div  id="app">
+		
+		<% include include/header.html %>
+			<div class="scroll" :style="hdp">
+				<div class="container-warp" :style="screen">
+					<div class="container-scroll" :style="screen">
+						<% include include/index-top.html %>
+						<% include include/index-recommend.html %>
+						<% include include/index-hot.html %>
+						<% include include/index-female.html %>
+						<% include include/index-male.html %>
+						<% include include/index-free.html %>
+						<% include include/index-bottom.html %>
+					</div>
+					
+				</div>
+					<div class="shelfs" :style="screen">
+						<% include include/index-shelf.html %>
+					</div>
+			</div>	
+		</div>	
+			
+	</body>
+	
+	<script src="/static/script/jquery-3.2.1.js"></script>
+    <script src="/static/script/zepto.js"></script>
+    <script src="/static/script/vue.js"></script>
+    <script src="/static/script/pages/index.js"></script>
+</html>
