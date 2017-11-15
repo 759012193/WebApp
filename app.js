@@ -1,9 +1,9 @@
 var koa=require('koa');
 var controller=require('koa-route');
 var app=koa();
+/*保存状态11.16*/
 
 var test2="master";
-
 var views=require('co-views');
 var render=views('./view',{
 	map:{html:'ejs'}
