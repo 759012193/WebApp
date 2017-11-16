@@ -1,9 +1,9 @@
 var koa=require('koa');
 var controller=require('koa-route');
 var app=koa();
-/*保存状态11.16*/
 
 var test2="master";
+
 var views=require('co-views');
 var render=views('./view',{
 	map:{html:'ejs'}
@@ -30,6 +30,11 @@ app.use(controller.get('/book',function*(){
 	var bookId=params.id;
 	this.body=yield render('book',{bookId:bookId});
 })); 
+app.use(controller.get('/rank',function*(){
+	this.set('Cache-Control','no-cache');
+	
+	this.body=yield render('rank',{title:'排行'});
+})); 
 app.use(controller.get('/search',function*(){
 	this.set('Cache-Control','no-cache');
 	this.body=yield render('search',{title:'搜索'});
@@ -54,7 +59,12 @@ app.use(controller.get('/ajax/book',function*(){
 	if(!id){
 		id="";
 	}
-	this.body=service.get_book_data(id);
+	this.body=yield  service.get_book_data(id);
+}));
+app.use(controller.get('/ajax/rank',function*(){
+	this.set('Cache-Control','no-cache');
+	
+	this.body=yield service.get_rank_data();
 }));
 app.use(controller.get('/ajax/chapter',function*(){
 	this.set('Cache-Control','no-cache');

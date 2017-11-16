@@ -24,8 +24,8 @@ if(windowWidth<320){
 			tab_2_class:'',
 		},
 		methods:{
-			readBook:function(){
-				location.href='/book?id=18218';
+			readBook:function(id){
+				location.href='/book?id='+id;
 			},
 			tabSwitch:function(pos){
 				this.dp="width:"+index_header_tab_width+"px;transition-duration:0.5s;transform: translate3d(0px,0px,0px);";

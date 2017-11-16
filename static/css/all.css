@@ -548,7 +548,7 @@
 	.book-h5__author{
 		margin-top: 8px;
 		font:12px/12px a;
-		color: rgba(0,0,0,0.7);
+		color: rgba(15, 208, 129, 0.7);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;

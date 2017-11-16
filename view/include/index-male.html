@@ -8,7 +8,7 @@
 	<div>
 	<div>
 		<ul class="list-h5">
-			<li  v-on:click="readBook()" v-for="(item,index) in male" v-if="index<5">
+			<li  v-on:click="readBook(item.fiction_id)" v-for="(item,index) in male" v-if="index<5">
 				<div class="book-h5">
 				    <div class="book-h5__cover">
 				    	<img :alt="item.title"  v-bind:src="item.cover">
@@ -16,7 +16,7 @@
 				    </div>
 				    <div class="book-h5__info">
 				    	<p class="book-h5__title">{{item.title}}</p>
-			    	<p class="book-h5__author">{{item.author}}</p>
+			    	<p class="book-h5__author">{{item.authors}}</p>
 			    	<p class="book-h5__aummary">{{item.summary}}</p>
 			    	<div class="book-h5__wrap">
 			    		<div class="book-h5__tag" v-for="tag in item.tags">{{tag}}</div>
