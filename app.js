@@ -32,8 +32,15 @@ app.use(controller.get('/book',function*(){
 })); 
 app.use(controller.get('/rank',function*(){
 	this.set('Cache-Control','no-cache');
-	
-	this.body=yield render('rank',{title:'排行'});
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var rankid=params.id;
+	this.body=yield render('rank',{rankid:rankid});
+})); 
+app.use(controller.get('/rankdetail',function*(){
+	this.set('Cache-Control','no-cache');
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var rankid=params.id;
+	this.body=yield render('rank-detail',{rankid:rankid});
 })); 
 app.use(controller.get('/search',function*(){
 	this.set('Cache-Control','no-cache');
@@ -63,9 +70,14 @@ app.use(controller.get('/ajax/book',function*(){
 }));
 app.use(controller.get('/ajax/rank',function*(){
 	this.set('Cache-Control','no-cache');
-	
-	this.body=yield service.get_rank_data();
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var id=params.id;
+	if(!id){
+		id="";
+	}
+	this.body=yield service.get_rank_data(id);
 }));
+
 app.use(controller.get('/ajax/chapter',function*(){
 	this.set('Cache-Control','no-cache');
 	this.body=service.get_chapter_data();
@@ -79,10 +91,15 @@ app.use(controller.get('/ajax/chapter/data',function*(){
 	}
 	this.body=service.get_chapter_content_data(id);
 }));
-app.use(controller.get('/ajax/rank',function*(){
+app.use(controller.get('/ajax/rankdetail',function*(){
 	this.set('Cache-Control','no-cache');
+	var querystring=require('querystring');
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var start=params.start;
+	var count=params.count;
+	var id=params.id;
 	
-	this.body=service.get_rank_data();
+	this.body=yield service.get_rankdetail_data(start,count,id);
 }));
 app.use(controller.get('/ajax/search',function*(){
 	this.set('Cache-Control','no-cache');

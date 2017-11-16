@@ -7,8 +7,8 @@ $.get('/ajax/rank',function(d){
 			items:d.items
 		},
 		methods:{
-			getRank:function(){
-				location.href='/rankdetail';
+			getRank:function(id){
+				location.href='/rankdetail?id='+id;
 			}
 
 		}

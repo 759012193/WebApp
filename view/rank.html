@@ -18,9 +18,10 @@
 			</div>
 			<div class="top_bd">
 				<ul class="original-rank-list">
-					<li class="original-rank-list__item" v-for="(item,index) in items" v-if="index<4||index>8">
+					<li class="original-rank-list__item" v-on:click="getRank(item.ranks.split(',')[1])" v-for="(item,index) in items" v-if="index>17">
 					<img :alt="item.title"  v-bind:src="item.cover" class="original-rank-list__img">
 						<p class="original-rank-list__page">
+
 						<span class="original-rank-list__num"> 1</span>
 						{{item.description.split("\n")[0]}}</p>
 						<p class="original-rank-list__page">

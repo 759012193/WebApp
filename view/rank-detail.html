@@ -12,16 +12,56 @@
 	<body>
 		<div  id="app">
 			<div class="top">
-				<a class="top__back" href="/"></a>
+				<a class="top__back" href="/rank"></a>
 				<span class="top__title"></span>
 				<a class="header-home" href="/"></a>
 			</div>
-			
+			<div class="top_bd">
+				<div class="rank-page">
+					<ul class="single-filter -three">
+						<li v-on:click="tabSwitch(0)" id="Tag__65" :class="select1_class"><div class="tag">周榜</div></li>
+						<li v-on:click="tabSwitch(1)" id="Tag__66" :class="select2_class"><div class="tag">月榜</div></li>
+						<li v-on:click="tabSwitch(2)" id="Tag__67" :class="select3_class"><div class="tag">总榜</div></li>
+					</ul>
+					<div class="split-line"></div>
+					<div class="tag-body">
+						<div class="rank-page">
+							<ul class="book-list">
+								<li v-for="(item,index) in items">
+									<div class="u-book">
+										<div class="u-book__lt">
+											<div class="u-book__lt-number">{{index+1}}</div>
+										</div>
+										<div class="u-book__lt-triangle"></div>
+										<div class="book-cover Lazy_loading Lazy_loaded">
+											<img :alt="item.title"  v-bind:src="item.cover">
+											<div class="u-tagRT"></div>
+										</div>
+										<div class="info">
+											<h3 class="title  single-line">{{item.title}}</h3>
+											<div class="wrap">
+												<p class="author single-line">
+													<span class="author">{{item.authors}}</span>
+												</p>
+											</div>
+											<p class="summary">{{item.summary}}</p>
+											<p class="u-book__onRead ">
+												<img src="http://image.read.duokan.com/mfsv2/download/fdsc3/p01DP6uVrgOY/jcc0zobbY1xfYP.png" class="u-book__eye ">本周{{item.ex}}人在读
+											</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="ListView"></div>
+					</div>
+				</div>
+			</div>
 		</div>	
 	</body>
 	
 	<script src="/static/script/jquery-3.2.1.js"></script>
     <script src="/static/script/zepto.js"></script>
     <script src="/static/script/vue.js"></script>
-    <script src="/static/script/pages/rank.js"></script>
+    <script src="/static/script/pages/rankdetail.js"></script>
 </html>
