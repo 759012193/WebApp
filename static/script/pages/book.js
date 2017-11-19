@@ -5,8 +5,8 @@ $.get('/ajax/book?id='+id,function(d){
 		el:'#app',
 		data:d,
 		methods:{
-			readBook:function(){
-				location.href='/reader';
+			readBook:function(id){
+				location.href='/reader?id='+id;
 			}
 
 		}

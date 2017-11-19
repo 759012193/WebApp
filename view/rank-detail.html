@@ -12,7 +12,7 @@
 	<body>
 		<div  id="app">
 			<div class="top">
-				<a class="top__back" href="/rank"></a>
+				<a class="top__back" href="javascript:history.back(-1)"></a>
 				<span class="top__title"></span>
 				<a class="header-home" href="/"></a>
 			</div>
@@ -27,7 +27,7 @@
 					<div class="tag-body">
 						<div class="rank-page">
 							<ul class="book-list">
-								<li v-for="(item,index) in items">
+								<li v-on:click="readBook(item.fiction_id)" v-for="(item,index) in items">
 									<div class="u-book">
 										<div class="u-book__lt">
 											<div class="u-book__lt-number">{{index+1}}</div>

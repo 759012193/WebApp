@@ -50,6 +50,9 @@ $.get('/ajax/rankdetail?id='+id,function(d){
 			select3_class:''
 		},
 		methods:{
+			readBook:function(id){
+				location.href='/book?id='+id;
+			},
 			getRank:function(id){
 				location.href='/rankdetail?id='+id;
 			},

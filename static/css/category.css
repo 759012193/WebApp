@@ -1,0 +1,119 @@
+	.top{
+		position: relative;
+		height: 44px;
+		border-bottom: 1px solid #ddd;
+		font:15px/45px a;
+		color: rgba(0,0,0,0.7);
+		background-color: #efeff0;
+	}
+	.top__back{
+		float: left;
+		width: 42px;
+		height: 44px;
+	}
+	.top__back:before{
+		content:'';
+		display: block;
+		margin: 15px 0 0 16px;
+		width: 10px;
+		height: 16px;
+		background: url(/static/img/back.png) no-repeat;
+		background-size: 10px 16px;
+	}
+	.header-home{
+		float: right;
+		width: 44px;
+		height: 44px;
+		background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01eZH42sBV7/QTS90E2ZVritaa.png) no-repeat center;
+		background-size:16px;
+	}
+	.top__bd {
+	    position: absolute;
+	    top: 45px;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    overflow: auto;
+	}
+	.new-page {
+	    background: #fff;
+	    width: 100%;
+	    height: 100%;
+	}
+	.u-area {
+	    margin: 0 10px;
+	}
+	.u-ttl {
+	    margin-top: 10px;
+	    position: relative;
+	    line-height: 2.4em;
+	    border-bottom: 1px solid #eee;
+	    color: #8A8D8E;
+	    -webkit-box-sizing: border-box;
+	}
+	.u-ttl-icn * {
+	    vertical-align: middle;
+	}
+	.icn-catagory1 {
+	    background-position: 0 -64px;
+	}
+	.icn-catagory1, .icn-catagory2, .icn-catagory3, .icn-catagory4, .icn-arr-top, .icn-catagory-best {
+	    display: inline-block;
+	    width: 16px;
+	    height: 16px;
+	}
+	.icn-catagory1, .icn-catagory2, .icn-catagory3, .icn-catagory4, .icn-arr-top, .icn-catagory-best {
+	    background: url(http://dushu.xiaomi.com/v3WqdeYP.png) no-repeat;
+	    background-size: 16px;
+	}
+	em, strong {
+	    font-weight: bold;
+	    font-style: normal;
+	}
+	.u-ttl-icn h1 {
+	    margin-left: 5px;
+	}
+	.u-ttl h1 {
+	    display: inline-block;
+	    font-size: 15px;
+	    font-weight: 400;
+	}
+	.u-ttl-icn * {
+	    vertical-align: middle;
+	}
+	.u-list-2col {
+	    margin-bottom: 2%;
+	    overflow: hidden;
+	}
+	.u-list-2col li:nth-child(2n+1) {
+	    margin-right: 2%;
+	}
+	.u-list-2col li {
+	    float: left;
+	    width: 49%;
+	    margin: 2% 0 0 0;
+	}
+	li {
+	    list-style: none;
+	}
+	.u-cat-item {
+	    width: 100%;
+	    height: 66px;
+	    padding: 16px 6px 0;
+	    background-color: #eee;
+	    background-size: 100%;
+	    background-position: right bottom;
+	    background-repeat: no-repeat;
+	    color: #515151;
+	    -webkit-box-sizing: border-box;
+	}
+	.u-cat-item h3 {
+	    font-size: 13px;
+	    line-height: 16px;
+	}
+	.u-cat-item .num {
+	    font-size: 11px;
+	    line-height: 1em;
+	    color: #999;
+	    padding-top: 4px;
+	}

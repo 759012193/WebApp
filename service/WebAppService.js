@@ -106,6 +106,102 @@ return function(cb){
 	}
 		
 }
+exports.get_male_data=function(id){
+	
+return function(cb){
+		var http=require('http');
+		var qs=require('querystring');
+		
+		var http_request={
+			hostname:'dushu.xiaomi.com',
+			port:80,
+			path:'/hs/v3/channel/369'
+		}
+		req_obj=http.request(http_request,function(_res){
+			var content='';
+			_res.setEncoding('utf8');
+			_res.on('data',function(chunk){
+				content+=chunk;
+
+
+			});
+			_res.on('end',function(){
+				cb(null,content);
+			});
+
+
+		});
+		req_obj.on('error',function(){
+
+		});
+		req_obj.end();
+	}
+		
+}
+exports.get_female_data=function(id){
+	
+return function(cb){
+		var http=require('http');
+		var qs=require('querystring');
+		
+		var http_request={
+			hostname:'dushu.xiaomi.com',
+			port:80,
+			path:'/hs/v3/channel/370'
+		}
+		req_obj=http.request(http_request,function(_res){
+			var content='';
+			_res.setEncoding('utf8');
+			_res.on('data',function(chunk){
+				content+=chunk;
+
+
+			});
+			_res.on('end',function(){
+				cb(null,content);
+			});
+
+
+		});
+		req_obj.on('error',function(){
+
+		});
+		req_obj.end();
+	}
+		
+}
+exports.get_menu_data=function(id){
+	
+return function(cb){
+		var http=require('http');
+		var qs=require('querystring');
+		
+		var http_request={
+			hostname:'dushu.xiaomi.com',
+			port:80,
+			path:'/store/v0/fiction/detail/'+id
+		}
+		req_obj=http.request(http_request,function(_res){
+			var content='';
+			_res.setEncoding('utf8');
+			_res.on('data',function(chunk){
+				content+=chunk;
+
+
+			});
+			_res.on('end',function(){
+				cb(null,content);
+			});
+
+
+		});
+		req_obj.on('error',function(){
+
+		});
+		req_obj.end();
+	}
+		
+}
 exports.get_chapter_data=function(){
 	var content=fs.readFileSync('./mock/reader/chapter.json','utf-8');
 

@@ -36,6 +36,26 @@ app.use(controller.get('/rank',function*(){
 	var rankid=params.id;
 	this.body=yield render('rank',{rankid:rankid});
 })); 
+app.use(controller.get('/male',function*(){
+	this.set('Cache-Control','no-cache');
+	
+	this.body=yield render('male',{title:'男生频道'});
+})); 
+app.use(controller.get('/female',function*(){
+	this.set('Cache-Control','no-cache');
+	
+	this.body=yield render('female',{title:'女生频道'});
+})); 
+app.use(controller.get('/login',function*(){
+	this.set('Cache-Control','no-cache');
+	
+	this.body=yield render('login',{title:'登录'});
+})); 
+app.use(controller.get('/category',function*(){
+	this.set('Cache-Control','no-cache');
+	
+	this.body=yield render('category',{title:'分类'});
+})); 
 app.use(controller.get('/rankdetail',function*(){
 	this.set('Cache-Control','no-cache');
 	var params=querystring.parse(this.req._parsedUrl.query);
@@ -44,11 +64,17 @@ app.use(controller.get('/rankdetail',function*(){
 })); 
 app.use(controller.get('/search',function*(){
 	this.set('Cache-Control','no-cache');
-	this.body=yield render('search',{title:'搜索'});
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var keyword=params.keyword;
+	this.body=yield render('search',{keyword:keyword});
 })); 
 app.use(controller.get('/reader',function*(){
 	this.set('Cache-Control','no-cache');
 	this.body=yield render('reader',{title:'搜索'});
+})); 
+app.use(controller.get('/menu',function*(){
+	this.set('Cache-Control','no-cache');
+	this.body=yield render('menu',{title:'目录'});
 })); 
 app.use(controller.get('/api_test',function*(){
 	this.set('Cache-Control','no-cache');
@@ -67,6 +93,33 @@ app.use(controller.get('/ajax/book',function*(){
 		id="";
 	}
 	this.body=yield  service.get_book_data(id);
+}));
+app.use(controller.get('/ajax/male',function*(){
+	this.set('Cache-Control','no-cache');
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var id=params.id;
+	if(!id){
+		id="";
+	}
+	this.body=yield  service.get_male_data(id);
+}));
+app.use(controller.get('/ajax/female',function*(){
+	this.set('Cache-Control','no-cache');
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var id=params.id;
+	if(!id){
+		id="";
+	}
+	this.body=yield  service.get_female_data(id);
+}));
+app.use(controller.get('/ajax/menu',function*(){
+	this.set('Cache-Control','no-cache');
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var id=params.id;
+	if(!id){
+		id="";
+	}
+	this.body=yield  service.get_menu_data(id);
 }));
 app.use(controller.get('/ajax/rank',function*(){
 	this.set('Cache-Control','no-cache');

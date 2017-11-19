@@ -5,24 +5,21 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
 		<meta name="format-detection" content="telephone=no">
 		<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
-		<link rel="stylesheet" type="text/css" href="/static/css/maleorfemale.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/menu.css">
 		
-		<title>男生频道</title>
+		<title>目录</title>
 	</head>
 	<body>
 		<div  id="app">
 			<div class="top">
 				<a class="top__back" href="javascript:history.back(-1)"></a>
-				<span class="top__title">男生频道</span>
+				<span class="top__title">目录</span>
 				<a class="header-home" href="/"></a>
 			</div>
 			<div class="top_bd">
-				<div class="new-page channel-page">
-					<% include include/maleorfemale-concern.html %>
-					<% include include/maleorfemale-recommend.html %>
-					<% include include/maleorfemale-new.html %>
-					<% include include/maleorfemale-over.html %>
-				</div>
+				<ul class="fiction-toc">
+					<li v-for="(item,index) in items" class="fiction-toc__item fiction-toc__item_free fiction-toc__item_cur fiction-toc__item_download" id="Tag__3" data-id="0"><p>{{item.title}}</p></li>
+				</ul>
 			</div>
 		</div>	
 	</body>
@@ -30,5 +27,5 @@
 	<script src="/static/script/jquery-3.2.1.js"></script>
     <script src="/static/script/zepto.js"></script>
     <script src="/static/script/vue.js"></script>
-    <script src="/static/script/pages/male.js"></script>
+    <script src="/static/script/pages/menu.js"></script>
 </html>

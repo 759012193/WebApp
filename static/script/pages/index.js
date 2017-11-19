@@ -40,6 +40,9 @@ if(windowWidth<320){
 					this.tab_2_class="Swipe-tab__on";
 					this.tab_1_class="";
 				}
+			},
+			login:function(){
+				location.href='/login';
 			}
 		}
 	})
