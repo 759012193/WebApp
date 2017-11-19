@@ -3,7 +3,7 @@
 	<div class="channel-group__header">
 	<h2 class="channel-group__title">限时免费</h2>
 		<ul class="book-table">
-			<li  v-on:click="readBook()" v-on:click="readBook()" v-for="(item,index) in free" v-if="index<6">
+			<li  v-on:click="readBook(item.fiction_id)" v-for="(item,index) in free" v-if="index<6">
 				<div class="u-book">
 					<div class="book-cover">
 						<img :alt="item.title"  v-bind:src="item.data.book_cover">
