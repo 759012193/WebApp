@@ -36,6 +36,12 @@ app.use(controller.get('/rank',function*(){
 	var rankid=params.id;
 	this.body=yield render('rank',{rankid:rankid});
 })); 
+app.use(controller.get('/classifiction',function*(){
+	this.set('Cache-Control','no-cache');
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var rankid=params.id;
+	this.body=yield render('classification',{rankid:rankid});
+})); 
 app.use(controller.get('/male',function*(){
 	this.set('Cache-Control','no-cache');
 	
