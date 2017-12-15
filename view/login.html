@@ -5,8 +5,68 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" type="text/css" href="/static/css/login.css">
+	<script src="/static/script/jquery-3.2.1.js"></script>
+	<script src="/static/script/zepto.js"></script>
+	<script src="/static/script/vue.js"></script>
 	<title>登录</title>
 </head>
+<script type="text/javascript">
+$(function(){
+	var boolclick=0;
+	$('#ChangeLoginType').bind('click',function() {
+							 if(boolclick==0){
+							 	
+							 	boolclick=1;
+							 	$('#loginbox-l1').attr('class','lgn_inputbg c_b login-panel pwdLogin sms_login');
+							 	$('#region-code').attr('class','labelbox login_user c_b add_regioncode');
+							 	$('#username').attr('placeholder','手机号码');
+							 	$('#sms-code-panel').attr('style','display: block;');
+							 	$('#pwd').attr('type','number');
+							 	$('#pwd').attr('placeholder','短信验证码');
+							 	$('#ChangeLoginType').text('用户名密码登录');
+							 }else{
+							 	
+							 	boolclick=0;
+							 	$('#loginbox-l1').attr('class','lgn_inputbg c_b login-panel pwdLogin');
+							 	$('#region-code').attr('class','labelbox login_user c_b');
+							 	$('#username').attr('placeholder','邮箱/手机号码/爬爬ID');
+							 	$('#sms-code-panel').attr('style','display: none;');
+							 	$('#pwd').attr('type','password');
+							 	$('#pwd').attr('placeholder','密码');
+							 	$('#ChangeLoginType').text('手机短信登录/注册');
+							 }
+						});
+	$('#sms-code-panel').bind('click',function(){
+
+
+		$.post({
+			url:'http://10.255.83.27:8080/baas/kdbs/kdbs_action/GetCode',
+ 			data:JSON.stringify("{'phoneNum':'17370088470'}"),
+			
+			headers:{ 
+				Accept:'application/json, text/javascript, */*; q=0.01',
+				AcceptEncoding:'gzip, deflate',
+				AcceptLanguage:'zh-CN,zh;q=0.8',
+				Connection:'keep-alive',
+				ContentLength:26,
+				ContentType:'application/json',
+				Cookie:'request-use-base64=false',
+				Host:'localhost:8080',
+				Origin:'http://localhost:8080',
+				Referer:'http://localhost:8080/x5/UI2/v_/express/index.w?device=m',
+				UserAgent:'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.4 Safari/537.36',
+				XRequestedWith:'XMLHttpRequest'
+			},
+			success:function(data){
+				alert(data);
+			}
+
+
+		});
+	})
+});
+	
+</script>
 <body>
 	<div class="wrapper">
 		<div class="wrap">
@@ -44,12 +104,17 @@
 									<div class="login_area">
 									<form>
 											<div class="loginbox c_b">
-												<div class="lgn_inputbg c_b login-panel pwdLogin">
+												<div id="loginbox-l1" class="lgn_inputbg c_b login-panel pwdLogin">
 													<label id="region-code" class="labelbox login_user c_b">
+													<div class="country_list"">
+                              <div class="animation countrycode_selector" id="countrycode_selector">
+                                <span class="country_code"><tt class="countrycode-value" id="countrycode_value">+86</tt><i class="icon_arrow_down"></i></span>
+                              </div>
+                            </div>
 														<input class="item_account" autocomplete="off" type="text" name="user" id="username" placeholder="邮箱/手机号码/爬爬ID">
 													</label>
-													<label class="labelbox pwd_panel c_b">
-														<input class="item_account" type="password" placeholder="密码" autocomplete="off" id="pwd" name="password">
+													<label  class="labelbox pwd_panel c_b ">
+														<input  class="item_account" type="password" placeholder="密码" autocomplete="off" id="pwd" name="password">
 														<div class="eye_panel pwd-visiable">
 															<i class="eye pwd-eye">
 																<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -58,6 +123,9 @@
 																</svg>
 															</i>
 														</div>
+														<div id="sms-code-panel" class="code_panel" style="display: none;">
+                              <a href="javascript:;" id="getSMSCode">获取验证码</a>
+                                                        </div>
 													</label>
 												</div>
 												<div class="btns_bg">
@@ -116,8 +184,6 @@
 		</div>
 	</body>
 
-	<script src="/static/script/jquery-3.2.1.js"></script>
-	<script src="/static/script/zepto.js"></script>
-	<script src="/static/script/vue.js"></script>
+	
 
 	</html>

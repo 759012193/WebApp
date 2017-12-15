@@ -629,3 +629,39 @@
 		background-position: center;
 	}
 
+
+
+   .Swipe > div {
+	    overflow: hidden;
+	    -webkit-transition: -webkit-transform .3s ease-out;
+	}
+
+	.Swipe, .Swipe-tab {
+	    position: relative;
+	    overflow: hidden;
+	    z-index: 1;
+	}
+	.slider-banner .u-topic {
+	    padding: 0;
+	}
+	.Swipe > div > div {
+	    float: left;
+	    position: relative;
+	}
+	.u-topic {
+		margin-right: 10px;
+	    padding: 10px 14px;
+	}
+	element.style {
+	}
+	.u-topic .banner .cover {
+	    width: 100%;
+	    min-height: 36vw;
+	}
+	.u-topic .banner {
+	    width: 100%;
+	  
+	    line-height: 0;
+	    font-size: 0;
+	    background-color: #eeece9;
+	}
