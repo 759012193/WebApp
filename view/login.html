@@ -8,11 +8,13 @@
 	<script src="/static/script/jquery-3.2.1.js"></script>
 	<script src="/static/script/zepto.js"></script>
 	<script src="/static/script/vue.js"></script>
+	<script src="/static/script/pages/login.js"></script>
 	<title>登录</title>
 </head>
 <script type="text/javascript">
 $(function(){
 	var boolclick=0;
+	var backcode='';
 	$('#ChangeLoginType').bind('click',function() {
 							 if(boolclick==0){
 							 	
@@ -36,6 +38,9 @@ $(function(){
 							 	$('#ChangeLoginType').text('手机短信登录/注册');
 							 }
 						});
+	$('#login-button').bind('click',function() {
+							 
+						});
 	$('#sms-code-panel').bind('click',function(){
 
 
@@ -58,7 +63,7 @@ $(function(){
 				XRequestedWith:'XMLHttpRequest'
 			},
 			success:function(data){
-				alert(data);
+				backcode=data;
 			}
 
 
@@ -102,7 +107,7 @@ $(function(){
 							<div class="tabs-con tabs_con now">
 								<div>
 									<div class="login_area">
-									<form>
+									<form action="/ajax/female" method="POST" id="login-main-form">
 											<div class="loginbox c_b">
 												<div id="loginbox-l1" class="lgn_inputbg c_b login-panel pwdLogin">
 													<label id="region-code" class="labelbox login_user c_b">
